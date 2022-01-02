@@ -467,8 +467,10 @@ function M.change_dir(name)
   end
   current_tab = new_tab
 
-  if vim.g.nvim_tree_change_dir_global == 1 then
+  if vim.g.nvim_tree_change_dir_global == 'cd' then
     vim.cmd('cd '..vim.fn.fnameescape(foldername))
+  elseif vim.g.nvim_tree_change_dir_global == 'tcd' then
+    vim.cmd('tcd '..vim.fn.fnameescape(foldername))
   else
     vim.cmd('lcd '..vim.fn.fnameescape(foldername))
   end
